@@ -21,12 +21,12 @@ let playerHeight = player.clientHeight; // Track player's height
 //   player.style.left = `${playerPosition}px`;
 // });
 
-var socket=io('http://127.0.0.1:8000',{ transports : ['websocket'] })
-   socket.on('arduino:data',(data)=>{
-    console.log(data);
-   })
+// var socket=io('http://127.0.0.1:8000',{ transports : ['websocket'] })
+//    socket.on('arduino:data',(data)=>{
+//     console.log(data);
+//    })
 
-// var socket = io('http://127.0.0.1:8000', { transports: ['websocket'] });
+var socket = io('http://127.0.0.1:8000', { transports: ['websocket'] });
 socket.on('arduino:data', (data) => {
     let [xValue, yValue] = data.split(',').map(Number);
     movePlayer(xValue, yValue);
@@ -42,9 +42,9 @@ function movePlayer(xValue, yValue) {
     let centerX = 512; // Adjust based on joystick calibration
     let centerY = 512; // Adjust based on joystick calibration
 
-    if (xValue > centerX + 100) { // Right
+    if (xValue > 500) { // Right
         playerPosition += playerSpeed;
-    } else if (xValue < centerX - 100) { // Left
+    } else if (xValue < 400) { // Left
         playerPosition -= playerSpeed;
     }
 

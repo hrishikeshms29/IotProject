@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: url("shoot.jpeg");
+  font-family: 'Arial', sans-serif;
+}
+
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+#spaceship {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-image: url("rocket.png");
+  background-size: cover;
+  transform: translateX(-50%);
+  transition: transform 0.1s;
+}
+
+.asteroid, .laser {
+  position: absolute;
+}
+
+.asteroid {
+  width: 40px;
+  height: 40px;
+  background-image: url("asteroid.png");
+  background-size: cover;
+  animation: asteroid-spin 5s linear infinite;
+}
+
+@keyframes asteroid-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.laser {
+  width: 5px;
+  height: 20px;
+  background-color: #ff0000;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#game-over-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#game-over-popup.hidden {
+  display: none;
+}
+
+#game-over-popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+#game-over-popup button:hover {
+  background-color: #666;
+}
+
+#game-over-popup button:active {
+  transform: scale(0.98);
+}

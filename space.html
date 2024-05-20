@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avoid the Moving Obstacles</title>
-  <link rel="stylesheet" href="catch-style.css">
+  <script src="http://127.0.0.1:8000/socket.io/socket.io.js"></script>
+  <title>Space Shooter</title>
+  <link rel="stylesheet" href="spacestyles.css">
 </head>
 <body>
   <div id="game-container">
-    <div id="player"></div>
+    <div id="spaceship"></div>
     <div id="score">Score: 0</div>
   </div>
-  <div id="game-over-popup">
-    <p id="final-score">Your score: 0</p>
+  <div id="game-over-popup" class="hidden">
+    <p>Game Over!</p>
     <button id="play-again">Play Again</button>
     <button id="home">Home</button>
   </div>
-  <script src="avoid-obstacles.js"></script>
+  <script src="spacescript.js"></script>
 </body>
 </html>
