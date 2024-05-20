@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#left-decor, #right-decor {
+    width: 25%;
+    background-image: url('piece-turf.jpg');
+    background-color: #222;
+}
+
+#center-track {
+    position: relative;
+    width: 50%;
+    background-image: url("road.jpeg");
+    /* background-color: #444; */
+    overflow: hidden;
+}
+
+#car {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 70px;
+    height: 100px;
+    background-image: url('car.png');
+    background-size: cover;
+    transform: translateX(-50%);
+}
+
+.obstacle, .coin, .timeAdder {
+    position: absolute;
+    background-size: cover;
+}
+
+.obstacle {
+    width: 75px;
+    height: 100px;
+    filter: hue-rotate(0deg);
+    /* animation: colorChange 3s infinite alternate; */
+}
+
+@keyframes colorChange {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.coin {
+    width: 30px;
+    height: 30px;
+    background-image: url('dollar.png');
+}
+
+.timeAdder {
+    width: 30px;
+    height: 30px;
+    background-image: url('charging.png');
+}
+
+#score, #timer {
+    margin: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    animation: slideIn 0.5s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close-btn:hover,
+#close-btn:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game-over-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+#final-score {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#play-again-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#play-again-btn:hover {
+    background-color: #45a049;
+}
+
+#home-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+#home-btn:hover {
+    background-color: #da190b;
+}
