@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arduino Data</title>
+  <!-- <script src="socket.io.js"></script> -->
+  <button onclick="End()">End</button>
+  <script src="http://127.0.0.1:8000/socket.io/socket.io.js"> </script>
+
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <script>
+   var socket=io('http://127.0.0.1:8000',{ transports : ['websocket'] })
+   socket.on('arduino:data',(data)=>{
+    console.log(data);
+   })
+   function End(){
+    socket.emit('end:game');
+   }
+  </script>
+</head>
+<body>
+  <div id="data"></div>
+</body>
+</html>
